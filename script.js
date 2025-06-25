@@ -96,24 +96,26 @@ function renderAnimals(filter = 'all') {
         return filter === 'all' || animal.type === filter;
     });
     
-    filteredAnimals.forEach(animal => {
-        const animalCard = document.createElement('div');
-        animalCard.className = `animal-card ${animal.type}`;
-        animalCard.innerHTML = `
-            <div class="animal-image" style="background-color: ${getRandomColor()}">
-                <span class="animal-type">${animal.type.toUpperCase()}</span>
-            </div>
-            <div class="animal-info">
-                <h3>${animal.name}</h3>
-                <p>${animal.description}</p>
-                <div class="attributes">
-                    ${animal.attributes.map(attr => `<span class="attribute-tag">${attr}</span>`).join('')}
+    animalsGrid.innerHTML = filteredAnimals.map(animal => {
+        const imagePath = animal.image ? `images/${animal.type}/${animal.image}` : '';
+        return `
+            <div class="animal-card ${animal.type}" data-id="${animal.id}">
+                <div class="animal-image" style="${imagePath ? `background-image: url('${imagePath}')` : `background-color: ${getRandomColor()}`}"></div>
+                <div class="animal-info">
+                    <h3>${animal.name}</h3>
+                    <p>${animal.description}</p>
+                    <div class="attributes">
+                        ${animal.attributes.map(attr => `<span class="attribute-tag">${attr}</span>`).join('')}
+                    </div>
                 </div>
             </div>
         `;
-        
-        animalCard.addEventListener('click', () => showAnimalDetails(animal.id));
-        animalsGrid.appendChild(animalCard);
+    }).join('');
+    
+    // Add event listeners to animal cards
+    const animalCards = animalsGrid.children;
+    Array.from(animalCards).forEach(card => {
+        card.addEventListener('click', () => showAnimalDetails(card.getAttribute('data-id')));
     });
     
     // Set up filter buttons
@@ -133,10 +135,11 @@ function showAnimalDetails(animalId) {
     if (!animal) return;
     
     const modalContent = document.getElementById('animal-details');
+    const imagePath = animal.image ? `images/${animal.type}/${animal.image}` : '';
     modalContent.innerHTML = `
         <h2>${animal.name}</h2>
         <p class="animal-type-display ${animal.type}">${animal.type.toUpperCase()}</p>
-        <div class="animal-detail-image" style="background-color: ${getRandomColor()}"></div>
+        <div class="animal-detail-image" style="${imagePath ? `background-image: url('${imagePath}')` : `background-color: ${getRandomColor()}`}"></div>
         <p><strong>Habitat:</strong> ${animal.habitat}</p>
         <p><strong>Fun Fact:</strong> ${animal.fun_fact}</p>
         <h3>Attributes</h3>
@@ -168,54 +171,88 @@ function showAnimalDetails(animalId) {
 
 // Battle Arena
 function setupBattleArena() {
+    // Initialize the battle arena
     const selector1 = document.getElementById('selector1');
     const selector2 = document.getElementById('selector2');
+    const animal1Container = document.getElementById('animal1');
+    const animal2Container = document.getElementById('animal2');
     
-    // Populate animal selectors
-    function populateSelectors() {
-        selector1.innerHTML = '';
-        selector2.innerHTML = '';
+    // Reset selected animals
+    gameData.selectedAnimals = { animal1: null, animal2: null };
+    
+    // Populate both selectors
+    populateSelector('selector1', 'animal1');
+    populateSelector('selector2', 'animal2');
+    
+    // Set up fight button
+    fightButton.disabled = true;
+    fightButton.onclick = startBattle;
+    
+    // Function to populate a single selector
+    function populateSelector(selectorId, containerId) {
+        const selector = document.getElementById(selectorId);
+        if (!selector) return;
         
+        // Clear existing options
+        selector.innerHTML = '';
+        
+        // Add a title
+        const title = document.createElement('h3');
+        title.textContent = containerId === 'animal1' ? 'Select Animal 1' : 'Select Animal 2';
+        selector.appendChild(title);
+        
+        // Create a container for the animal options
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'animal-options';
+        
+        // Add each animal as an option
         gameData.animals.forEach(animal => {
-            const option1 = createAnimalOption(animal, 'animal1');
-            const option2 = createAnimalOption(animal, 'animal2');
+            const option = document.createElement('div');
+            option.className = 'animal-option';
+            option.setAttribute('data-animal-id', animal.id);
+            const imagePath = animal.image ? `images/${animal.type}/${animal.image}` : '';
+            option.innerHTML = `
+                <div class="animal-image" style="${imagePath ? `background-image: url('${imagePath}')` : `background-color: ${getRandomColor()}`}"></div>
+                <span>${animal.name}</span>
+            `;
             
-            selector1.appendChild(option1);
-            selector2.appendChild(option2.cloneNode(true));
+            // Add click handler for this option
+            option.addEventListener('click', () => selectAnimal(animal.id, containerId));
+            
+            optionsContainer.appendChild(option);
         });
-    }
-    
-    function createAnimalOption(animal, selectorId) {
-        const div = document.createElement('div');
-        div.className = 'animal-option';
-        div.innerHTML = `
-            <div class="animal-option-image" style="background-color: ${getRandomColor()}"></div>
-            <span>${animal.name}</span>
-        `;
         
-        // Pass the correct selector ID based on which selector this is for
-        const containerSelector = selectorId === 'selector1' ? 'animal1' : 'animal2';
-        div.addEventListener('click', () => selectAnimal(animal.id, containerSelector));
-        return div;
+        selector.appendChild(optionsContainer);
     }
     
-    function selectAnimal(animalId, selectorId) {
+    // Function to handle animal selection
+    function selectAnimal(animalId, containerId) {
+        console.log('Selecting animal:', animalId, 'for container:', containerId);
+        
         const animal = gameData.animals.find(a => a.id === animalId);
-        if (!animal) return;
+        if (!animal) {
+            console.error('Animal not found:', animalId);
+            return;
+        }
         
-        // Determine which container we're updating based on selectorId
-        const containerId = selectorId === 'selector1' ? 'animal1' : 'animal2';
         const container = document.getElementById(containerId);
-        if (!container) return;
+        const selectorId = containerId === 'animal1' ? 'selector1' : 'selector2';
+        const selector = document.getElementById(selectorId);
+        
+        if (!container || !selector) {
+            console.error('Could not find container or selector:', {containerId, selectorId});
+            return;
+        }
         
         // Update selected animal
         gameData.selectedAnimals[containerId] = animal;
         
         // Update UI
+        const imagePath = animal.image ? `images/${animal.type}/${animal.image}` : '';
         container.innerHTML = `
             <h3>${animal.name}</h3>
             <div class="selected-animal">
-                <div class="animal-option-image" style="background-color: ${getRandomColor()}"></div>
+                <div class="animal-image" style="${imagePath ? `background-image: url('${imagePath}')` : `background-color: ${getRandomColor()}`}"></div>
                 <div class="animal-attributes">
                     ${animal.attributes.map(attr => `<span class="attribute-tag">${attr}</span>`).join('')}
                 </div>
@@ -223,58 +260,85 @@ function setupBattleArena() {
             </div>
         `;
         
-        // Add event listener to change button
-        container.querySelector('.change-animal')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const containerId = e.target.getAttribute('data-container');
-            resetAnimalSelection(containerId);
-        });
+        // Update visibility
+        container.style.display = 'block';
+        selector.style.display = 'none';
         
-        // Enable/disable fight button
-        fightButton.disabled = !(gameData.selectedAnimals.animal1 && gameData.selectedAnimals.animal2);
+        // Update fight button state
+        updateFightButton();
+        
+        console.log('Selected animal:', animal.name, 'for', containerId, 'Current selections:', gameData.selectedAnimals);
     }
     
-    // New function to reset a single animal selection
-    function resetAnimalSelection(containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
+    // Function to update fight button state
+    function updateFightButton() {
+        if (!fightButton) {
+            console.error('Fight button not found');
+            return;
+        }
         
-        const selectorId = containerId === 'animal1' ? 'selector1' : 'selector2';
-        const selector = document.getElementById(selectorId);
+        const hasBothAnimals = gameData.selectedAnimals.animal1 && gameData.selectedAnimals.animal2;
+        
+        // Update disabled state and visual feedback
+        fightButton.disabled = !hasBothAnimals;
+        fightButton.style.cursor = hasBothAnimals ? 'pointer' : 'not-allowed';
+        fightButton.style.opacity = hasBothAnimals ? '1' : '0.6';
+        
+        console.log('Fight button updated - hasBothAnimals:', hasBothAnimals);
+    }
+    
+    // Reset a single animal selection
+    function resetAnimalSelection(containerId) {
+        console.log('Resetting selection for:', containerId);
         
         // Clear the selection
         gameData.selectedAnimals[containerId] = null;
         
-        // Reset the UI for this participant
-        container.innerHTML = `
-            <h3>Select ${containerId === 'animal1' ? 'Animal 1' : 'Animal 2'}</h3>
-            <div class="animal-selector" id="${selectorId}"></div>
-        `;
+        const container = document.getElementById(containerId);
+        const selectorId = containerId === 'animal1' ? 'selector1' : 'selector2';
+        const selector = document.getElementById(selectorId);
         
-        // Re-populate the selector
-        populateSelector(selectorId);
+        if (!container || !selector) {
+            console.error('Could not find container or selector:', {containerId, selectorId});
+            return;
+        }
         
-        // Disable fight button if needed
-        fightButton.disabled = !(gameData.selectedAnimals.animal1 && gameData.selectedAnimals.animal2);
+        // Make sure the container is hidden and selector is visible
+        container.style.display = 'none';
+        selector.style.display = 'block';
+        
+        // Repopulate the selector
+        populateSelector(selectorId, containerId);
+        
+        // Force a reflow to ensure the DOM updates
+        void container.offsetHeight;
+        
+        // Update fight button state
+        updateFightButton();
+        
+        console.log('Reset complete for:', containerId, 'Current selections:', gameData.selectedAnimals);
     }
     
-    // Helper function to populate a single selector
-    function populateSelector(selectorId) {
-        const selector = document.getElementById(selectorId);
-        if (!selector) return;
-        
-        selector.innerHTML = '';
-        gameData.animals.forEach(animal => {
-            const option = createAnimalOption(animal, selectorId);
-            selector.appendChild(option);
-        });
-    }
+    // Document-level event delegation for change buttons
+    document.addEventListener('click', (e) => {
+        const changeButton = e.target.closest('.change-animal');
+        if (changeButton) {
+            e.preventDefault();
+            e.stopPropagation();
+            const containerId = changeButton.getAttribute('data-container');
+            if (containerId) {
+                console.log('Change button clicked for:', containerId);
+                resetAnimalSelection(containerId);
+            }
+        }
+    });
     
     // Fight button click handler
     fightButton.addEventListener('click', startBattle);
     
-    // Initial population
-    populateSelectors();
+    // Initial population of selectors
+    populateSelector('selector1', 'animal1');
+    populateSelector('selector2', 'animal2');
 }
 
 function startBattle() {
@@ -324,9 +388,18 @@ function renderAwards() {
     const container = document.getElementById('awards-container');
     if (!container) return;
     
+    // Check if we have awards data
+    if (!gameData.awards || !Array.isArray(gameData.awards)) {
+        container.innerHTML = '<p>No awards data available.</p>';
+        return;
+    }
+    
     container.innerHTML = gameData.awards.map(award => {
+        // Make sure award has an id and animals have awards array
         const winners = gameData.animals.filter(animal => 
-            animal.awards.includes(award.id)
+            animal && 
+            Array.isArray(animal.awards) && 
+            animal.awards.includes(award?.id)
         );
         
         return `
