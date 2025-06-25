@@ -193,7 +193,9 @@ function setupBattleArena() {
             <span>${animal.name}</span>
         `;
         
-        div.addEventListener('click', () => selectAnimal(animal.id, selectorId));
+        // Pass the correct selector ID based on which selector this is for
+        const containerSelector = selectorId === 'selector1' ? 'animal1' : 'animal2';
+        div.addEventListener('click', () => selectAnimal(animal.id, containerSelector));
         return div;
     }
     
@@ -201,12 +203,13 @@ function setupBattleArena() {
         const animal = gameData.animals.find(a => a.id === animalId);
         if (!animal) return;
         
-        const container = document.getElementById(selectorId).closest('.battle-participant');
+        // Determine which container we're updating based on selectorId
+        const containerId = selectorId === 'selector1' ? 'animal1' : 'animal2';
+        const container = document.getElementById(containerId);
         if (!container) return;
         
         // Update selected animal
-        const animalKey = container.id; // 'animal1' or 'animal2'
-        gameData.selectedAnimals[animalKey] = animal;
+        gameData.selectedAnimals[containerId] = animal;
         
         // Update UI
         container.innerHTML = `
@@ -216,7 +219,7 @@ function setupBattleArena() {
                 <div class="animal-attributes">
                     ${animal.attributes.map(attr => `<span class="attribute-tag">${attr}</span>`).join('')}
                 </div>
-                <button class="change-animal" data-container="${container.id}">Change</button>
+                <button class="change-animal" data-container="${containerId}">Change</button>
             </div>
         `;
         
