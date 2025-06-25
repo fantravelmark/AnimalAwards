@@ -1,0 +1,109 @@
+{
+  "awards": [
+    {
+      "id": "most_ferocious",
+      "name": "Most Ferocious",
+      "description": "Awarded to the most fearsome creature",
+      "category": "combat",
+      "year": 2025
+    },
+    {
+      "id": "most_elusive",
+      "name": "Most Elusive",
+      "description": "Awarded to the hardest to spot creature",
+      "category": "stealth",
+      "year": 2025
+    },
+    {
+      "id": "cutest_threat",
+      "name": "Cutest Threat",
+      "description": "Awarded to the most adorable yet dangerous creature",
+      "category": "dual-nature",
+      "year": 2025
+    },
+    {
+      "id": "best_camouflage",
+      "name": "Best Camouflage",
+      "description": "Awarded for the most effective use of natural disguise",
+      "category": "stealth",
+      "year": 2025
+    },
+    {
+      "id": "loudest_roar",
+      "name": "Loudest Roar",
+      "description": "Awarded to the creature with the most powerful vocalization",
+      "category": "combat",
+      "year": 2025
+    },
+    {
+      "id": "fastest_striker",
+      "name": "Fastest Striker",
+      "description": "Awarded for the most rapid attack ability",
+      "category": "combat",
+      "year": 2025
+    },
+    {
+      "id": "most_bizarre",
+      "name": "Most Bizarre",
+      "description": "Awarded to the creature with the most unusual traits",
+      "category": "weirdness",
+      "year": 2025
+    },
+    {
+      "id": "supreme_swimmer",
+      "name": "Supreme Swimmer",
+      "description": "Awarded to the best aquatic performer",
+      "category": "mobility",
+      "year": 2025
+    },
+    {
+      "id": "sky_emperor",
+      "name": "Sky Emperor",
+      "description": "Awarded to the dominant airborne species",
+      "category": "mobility",
+      "year": 2025
+    },
+    {
+      "id": "most_loyal",
+      "name": "Most Loyal",
+      "description": "Awarded for unparalleled loyalty or group bonding",
+      "category": "social",
+      "year": 2025
+    },
+    {
+      "id": "master_of_escape",
+      "name": "Master of Escape",
+      "description": "Awarded to the best evader under threat",
+      "category": "stealth",
+      "year": 2025
+    },
+    {
+      "id": "cutest_face",
+      "name": "Cutest Face",
+      "description": "Awarded for absolute adorability",
+      "category": "appearance",
+      "year": 2025
+    },
+    {
+      "id": "biggest_biter",
+      "name": "Biggest Biter",
+      "description": "Awarded for jaw strength and biting impact",
+      "category": "combat",
+      "year": 2025
+    },
+    {
+      "id": "most_radioactive",
+      "name": "Most Radioactive",
+      "description": "Awarded to creatures with high energy emissions or traits",
+      "category": "alien",
+      "year": 2025
+    },
+    {
+      "id": "best_glow",
+      "name": "Best Glow",
+      "description": "Awarded to the most visually radiant animal",
+      "category": "appearance",
+      "year": 2025
+    }
+  ]
+}

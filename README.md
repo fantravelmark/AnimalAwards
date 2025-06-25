@@ -1,23 +1,61 @@
-# My Interactive Website
+# Cosmic Animal Awards
 
-This is an interactive website built with HTML, CSS, and JavaScript. It's designed to be deployed on GitHub Pages.
+An interactive game where Earth animals battle alien creatures in an epic tournament to become cosmic ambassadors.
 
 ## Features
 
-- Responsive design that works on all devices
-- Smooth scrolling navigation
-- Interactive contact form
-- Modern and clean UI
-- Interactive elements with JavaScript
+- Battle system with unique animal attributes
+- Collection of Earth and Alien creatures
+- Award system for top performers
+- Command-line interface for gameplay
+- JSON-based data storage for easy modification
 
-## Getting Started
+## Installation
 
-1. Clone this repository to your local machine
-2. Create a new repository on GitHub
-3. Push your code to the repository
-4. Go to your repository settings on GitHub
-5. Scroll down to the "GitHub Pages" section
-6. Under "Source", select the branch you want to publish from (usually `main` or `master`)
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/fantravelmark/AnimalAwards.git
+   cd AnimalAwards
+   ```
+
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Running the Game
+
+To start the game, run:
+
+```bash
+python main.py
+```
+
+## Gameplay
+
+1. **View Animals**: Browse through Earth and Alien creatures
+2. **Battle**: Pit two animals against each other using their attributes
+3. **Awards**: Check out the different awards and their winners
+4. **Explore**: Learn about different creatures and their unique abilities
+
+## Data Files
+
+The game uses JSON files for data storage:
+- `earth_animals.json`: Earth creatures
+- `alien_animals.json`: Alien creatures
+- `awards.json`: Award categories and descriptions
+- `attributes.json`: Battle mechanics and attribute relationships
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch for your feature
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
 7. Click "Save"
 8. Your website will be live at `https://yourusername.github.io/repositoryname/`
 

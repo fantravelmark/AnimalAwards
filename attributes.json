@@ -1,0 +1,185 @@
+{
+  "relationships": [
+    {
+      "attribute": "strong",
+      "beats": [
+        "big",
+        "slow"
+      ],
+      "loses_to": [
+        "quick",
+        "venomous",
+        "biting"
+      ],
+      "description": "Raw power and muscle"
+    },
+    {
+      "attribute": "aquatic",
+      "beats": [
+        "hot",
+        "scaly"
+      ],
+      "loses_to": [
+        "cold",
+        "quick"
+      ],
+      "description": "Adapted to life in water"
+    },
+    {
+      "attribute": "big",
+      "beats": [
+        "small",
+        "cute"
+      ],
+      "loses_to": [
+        "agile",
+        "strong"
+      ],
+      "description": "Large and imposing"
+    },
+    {
+      "attribute": "small",
+      "beats": [
+        "slow",
+        "biting"
+      ],
+      "loses_to": [
+        "big",
+        "hot"
+      ],
+      "description": "Tiny and nimble"
+    },
+    {
+      "attribute": "flying",
+      "beats": [
+        "slow",
+        "scaly"
+      ],
+      "loses_to": [
+        "biting",
+        "cold"
+      ],
+      "description": "Mastery of the skies"
+    },
+    {
+      "attribute": "cold",
+      "beats": [
+        "hot",
+        "quick"
+      ],
+      "loses_to": [
+        "strong",
+        "venomous"
+      ],
+      "description": "Icy attacks and frost control"
+    },
+    {
+      "attribute": "hot",
+      "beats": [
+        "scaly",
+        "small"
+      ],
+      "loses_to": [
+        "cold",
+        "aquatic"
+      ],
+      "description": "Fire and heat-based abilities"
+    },
+    {
+      "attribute": "scaly",
+      "beats": [
+        "cute",
+        "stinging"
+      ],
+      "loses_to": [
+        "hot",
+        "flying"
+      ],
+      "description": "Thick, scale-covered defenses"
+    },
+    {
+      "attribute": "cute",
+      "beats": [
+        "biting",
+        "venomous"
+      ],
+      "loses_to": [
+        "scaly",
+        "big"
+      ],
+      "description": "Charming and disarming appearance"
+    },
+    {
+      "attribute": "venomous",
+      "beats": [
+        "strong",
+        "cold"
+      ],
+      "loses_to": [
+        "cute",
+        "quick"
+      ],
+      "description": "Toxic and paralyzing strikes"
+    },
+    {
+      "attribute": "quick",
+      "beats": [
+        "big",
+        "slow"
+      ],
+      "loses_to": [
+        "venomous",
+        "aquatic"
+      ],
+      "description": "Incredibly fast speeds"
+    },
+    {
+      "attribute": "agile",
+      "beats": [
+        "big",
+        "biting"
+      ],
+      "loses_to": [
+        "stinging",
+        "strong"
+      ],
+      "description": "Flexibility and dodging prowess"
+    },
+    {
+      "attribute": "slow",
+      "beats": [
+        "hot",
+        "venomous"
+      ],
+      "loses_to": [
+        "quick",
+        "big"
+      ],
+      "description": "Deliberate, patient movements"
+    },
+    {
+      "attribute": "stinging",
+      "beats": [
+        "quick",
+        "aquatic"
+      ],
+      "loses_to": [
+        "scaly",
+        "strong"
+      ],
+      "description": "Piercing attacks from tails or spines"
+    },
+    {
+      "attribute": "biting",
+      "beats": [
+        "flying",
+        "small"
+      ],
+      "loses_to": [
+        "cute",
+        "agile"
+      ],
+      "description": "Ferocious jaws and teeth"
+    }
+  ]
+}

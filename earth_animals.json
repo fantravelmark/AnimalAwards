@@ -1,0 +1,154 @@
+{
+  "animals": [
+    {
+      "id": "polar-bear",
+      "name": "Polar Bear",
+      "type": "earth",
+      "image": "polar-bear.jpg",
+      "description": "Largest land carnivore on Earth.",
+      "habitat": "Arctic",
+      "fun_fact": "Their skin is black under their white fur.",
+      "attributes": [
+        "strong",
+        "aquatic",
+        "big"
+      ],
+      "awards": []
+    },
+    {
+      "id": "alligator",
+      "name": "Alligator",
+      "type": "earth",
+      "image": "alligator.jpg",
+      "description": "A large reptile with powerful jaws and armored skin.",
+      "habitat": "Freshwater wetlands",
+      "fun_fact": "They can live up to 50 years in the wild.",
+      "attributes": [
+        "scaly",
+        "biting",
+        "aquatic"
+      ],
+      "awards": []
+    },
+    {
+      "id": "great-white-shark",
+      "name": "Great White Shark",
+      "type": "earth",
+      "image": "great-white-shark.jpg",
+      "description": "One of the most powerful predators in the ocean.",
+      "habitat": "Coastal surface waters",
+      "fun_fact": "They can detect a drop of blood from miles away.",
+      "attributes": [
+        "strong",
+        "aquatic",
+        "biting"
+      ],
+      "awards": []
+    },
+    {
+      "id": "zebra",
+      "name": "Zebra",
+      "type": "earth",
+      "image": "zebra.jpg",
+      "description": "African equine known for its black-and-white stripes.",
+      "habitat": "Savannas and grasslands",
+      "fun_fact": "Every zebra has a unique stripe pattern.",
+      "attributes": [
+        "quick",
+        "agile",
+        "cute"
+      ],
+      "awards": []
+    },
+    {
+      "id": "golden-retriever",
+      "name": "Golden Retriever",
+      "type": "earth",
+      "image": "golden-retriever.jpg",
+      "description": "Friendly, intelligent, and devoted family dog.",
+      "habitat": "Domestic",
+      "fun_fact": "They were originally bred for retrieving game from water.",
+      "attributes": [
+        "cute",
+        "agile",
+        "strong"
+      ],
+      "awards": []
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "type": "earth",
+      "image": "python.jpg",
+      "description": "Large, nonvenomous constrictor snake.",
+      "habitat": "Rainforests and grasslands",
+      "fun_fact": "They can swallow prey larger than their head.",
+      "attributes": [
+        "scaly",
+        "slow",
+        "strong"
+      ],
+      "awards": []
+    },
+    {
+      "id": "blue-whale",
+      "name": "Blue Whale",
+      "type": "earth",
+      "image": "blue-whale.jpg",
+      "description": "The largest animal to have ever lived on Earth.",
+      "habitat": "Open oceans",
+      "fun_fact": "Their heart can weigh as much as a car.",
+      "attributes": [
+        "big",
+        "aquatic",
+        "slow"
+      ],
+      "awards": []
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "type": "earth",
+      "image": "monkey.jpg",
+      "description": "Highly intelligent primates known for their agility.",
+      "habitat": "Forests and tropical regions",
+      "fun_fact": "Some monkeys use tools like sticks to get food.",
+      "attributes": [
+        "agile",
+        "quick",
+        "cute"
+      ],
+      "awards": []
+    },
+    {
+      "id": "bumblebee",
+      "name": "Bumblebee",
+      "type": "earth",
+      "image": "bumblebee.jpg",
+      "description": "Fuzzy, buzzing pollinators known for their stinging defense.",
+      "habitat": "Gardens and meadows",
+      "fun_fact": "They can fly despite their seemingly awkward body size.",
+      "attributes": [
+        "flying",
+        "stinging",
+        "small"
+      ],
+      "awards": []
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "type": "earth",
+      "image": "tiger.jpg",
+      "description": "A solitary big cat known for its power and stripes.",
+      "habitat": "Forests and grasslands",
+      "fun_fact": "No two tigers have the same stripes.",
+      "attributes": [
+        "strong",
+        "biting",
+        "quick"
+      ],
+      "awards": []
+    }
+  ]
+}

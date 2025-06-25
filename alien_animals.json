@@ -1,0 +1,154 @@
+{
+  "animals": [
+    {
+      "id": "zorblaxian-lurker",
+      "name": "Zorblaxian Lurker",
+      "type": "alien",
+      "image": "zorblaxian.jpg",
+      "description": "Masters of camouflage from Zorblax V.",
+      "habitat": "Dense jungles of Zorblax V",
+      "fun_fact": "Can change texture to match any surface.",
+      "attributes": [
+        "small",
+        "quick",
+        "agile"
+      ],
+      "awards": []
+    },
+    {
+      "id": "quarnox-glider",
+      "name": "Quarnox Glider",
+      "type": "alien",
+      "image": "quarnox.jpg",
+      "description": "A sky-dwelling predator that soars through gas clouds.",
+      "habitat": "Floating isles of Planet Quarnox",
+      "fun_fact": "Its wings generate static energy during flight.",
+      "attributes": [
+        "flying",
+        "agile",
+        "biting"
+      ],
+      "awards": []
+    },
+    {
+      "id": "marnok-behemoth",
+      "name": "Marnok Behemoth",
+      "type": "alien",
+      "image": "marnok.jpg",
+      "description": "A lumbering titan known for its echoing roar.",
+      "habitat": "Volcanic plains of Marnok-12",
+      "fun_fact": "Communicates through seismic vibrations.",
+      "attributes": [
+        "big",
+        "strong",
+        "hot"
+      ],
+      "awards": []
+    },
+    {
+      "id": "gelid-screamer",
+      "name": "Gelid Screamer",
+      "type": "alien",
+      "image": "gelid.jpg",
+      "description": "An icy creature whose shriek freezes prey mid-move.",
+      "habitat": "Crystal tundras of Cryon Delta",
+      "fun_fact": "Can lower the temperature around it by 40\u00b0C.",
+      "attributes": [
+        "cold",
+        "venomous",
+        "slow"
+      ],
+      "awards": []
+    },
+    {
+      "id": "zenthrax-stinger",
+      "name": "Zenthrax Stinger",
+      "type": "alien",
+      "image": "zenthrax.jpg",
+      "description": "Six-legged speedster with a paralyzing tail spike.",
+      "habitat": "Spiral dunes of Zenthrax Prime",
+      "fun_fact": "Can sprint faster than sound in short bursts.",
+      "attributes": [
+        "quick",
+        "stinging",
+        "venomous"
+      ],
+      "awards": []
+    },
+    {
+      "id": "orbital-nymph",
+      "name": "Orbital Nymph",
+      "type": "alien",
+      "image": "orbital.jpg",
+      "description": "Delicate-looking but highly adaptive void-flier.",
+      "habitat": "Upper atmosphere of Zephyria",
+      "fun_fact": "Feeds on ambient radiation and stardust.",
+      "attributes": [
+        "flying",
+        "cute",
+        "cold"
+      ],
+      "awards": []
+    },
+    {
+      "id": "tharnok-crawler",
+      "name": "Tharnok Crawler",
+      "type": "alien",
+      "image": "tharnok.jpg",
+      "description": "A many-legged brute with crushing mandibles.",
+      "habitat": "Underground mazes of Tharnok IX",
+      "fun_fact": "Its bite liquefies rock.",
+      "attributes": [
+        "scaly",
+        "biting",
+        "strong"
+      ],
+      "awards": []
+    },
+    {
+      "id": "pyroskitter",
+      "name": "Pyroskitter",
+      "type": "alien",
+      "image": "pyroskitter.jpg",
+      "description": "Tiny insectoid that glows like molten metal.",
+      "habitat": "Magma caverns of Gliese Forge",
+      "fun_fact": "Emits bursts of plasma to escape predators.",
+      "attributes": [
+        "small",
+        "hot",
+        "stinging"
+      ],
+      "awards": []
+    },
+    {
+      "id": "celestoon",
+      "name": "Celestoon",
+      "type": "alien",
+      "image": "celestoon.jpg",
+      "description": "Floating jellybeast with psychic pulses.",
+      "habitat": "Zero-gravity bloomfields of Nebula Nix",
+      "fun_fact": "Glows in tune with surrounding emotions.",
+      "attributes": [
+        "aquatic",
+        "cold",
+        "cute"
+      ],
+      "awards": []
+    },
+    {
+      "id": "razorplume",
+      "name": "Razorplume",
+      "type": "alien",
+      "image": "razorplume.jpg",
+      "description": "Bird-like warrior with razor-sharp feathers.",
+      "habitat": "Storm crags of Valtara",
+      "fun_fact": "Can shed feathers as projectile weapons.",
+      "attributes": [
+        "flying",
+        "biting",
+        "strong"
+      ],
+      "awards": []
+    }
+  ]
+}
