@@ -201,8 +201,8 @@ function setupBattleArena() {
         const animal = gameData.animals.find(a => a.id === animalId);
         if (!animal) return;
         
-        const selector = document.getElementById(selectorId);
-        const container = selector.closest('.battle-participant');
+        const container = document.getElementById(selectorId).closest('.battle-participant');
+        if (!container) return;
         
         // Update selected animal
         const animalKey = container.id; // 'animal1' or 'animal2'
@@ -216,20 +216,55 @@ function setupBattleArena() {
                 <div class="animal-attributes">
                     ${animal.attributes.map(attr => `<span class="attribute-tag">${attr}</span>`).join('')}
                 </div>
-                <button class="change-animal" data-selector="${selectorId}">Change</button>
+                <button class="change-animal" data-container="${container.id}">Change</button>
             </div>
         `;
         
         // Add event listener to change button
         container.querySelector('.change-animal')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            setupBattleArena(); // Reset selectors
+            const containerId = e.target.getAttribute('data-container');
+            resetAnimalSelection(containerId);
         });
         
         // Enable/disable fight button
-        if (gameData.selectedAnimals.animal1 && gameData.selectedAnimals.animal2) {
-            fightButton.disabled = false;
-        }
+        fightButton.disabled = !(gameData.selectedAnimals.animal1 && gameData.selectedAnimals.animal2);
+    }
+    
+    // New function to reset a single animal selection
+    function resetAnimalSelection(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        const selectorId = containerId === 'animal1' ? 'selector1' : 'selector2';
+        const selector = document.getElementById(selectorId);
+        
+        // Clear the selection
+        gameData.selectedAnimals[containerId] = null;
+        
+        // Reset the UI for this participant
+        container.innerHTML = `
+            <h3>Select ${containerId === 'animal1' ? 'Animal 1' : 'Animal 2'}</h3>
+            <div class="animal-selector" id="${selectorId}"></div>
+        `;
+        
+        // Re-populate the selector
+        populateSelector(selectorId);
+        
+        // Disable fight button if needed
+        fightButton.disabled = !(gameData.selectedAnimals.animal1 && gameData.selectedAnimals.animal2);
+    }
+    
+    // Helper function to populate a single selector
+    function populateSelector(selectorId) {
+        const selector = document.getElementById(selectorId);
+        if (!selector) return;
+        
+        selector.innerHTML = '';
+        gameData.animals.forEach(animal => {
+            const option = createAnimalOption(animal, selectorId);
+            selector.appendChild(option);
+        });
     }
     
     // Fight button click handler
